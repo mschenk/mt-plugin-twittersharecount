@@ -8,7 +8,7 @@ This plugin has been developed on Movable Type 5.13, but earlier versions of MT5
 
 Requirements
 -------------
-This plugin uses a scheduled task to pull in the data from Facebook every hour, so either the tools/run-periodic-tasks on the server needs to be run regularily or the RSS feed of the system activity log needs to be fetched periodically (this also triggers the scheduled tasks framework in Movable Type).
+This plugin uses a scheduled task to pull in the data from Twitter every hour, so either the tools/run-periodic-tasks on the server needs to be run regularily or the RSS feed of the system activity log needs to be fetched periodically (this also triggers the scheduled tasks framework in Movable Type).
 
 Installation
 -------------
@@ -21,7 +21,7 @@ Go to the Tools > Plugins menu of the blog you want to enable this plugin for, a
 Usage
 ------
 * In Movable Type 5, go to the screen listing a blog's entries and click on the 'Display Options'.  There should now be an option to add a 'Twitter Shares' column to the listing.  NOTE: the data is refreshed hourly, so right after plugin installation the column might still be blank.  Also, if none of your posts are shared on Twitter, the column will remain blank as well.
-* The plugin adds a tag <mt:EntryFBShares> to any entry context in MT's templates, which will display the current number of Facebook shares at the time the template was published.
+* The plugin adds a tag &lt;mt:EntryTWShares> to any entry context in MT's templates, which will display the current number of Twitter shares at the time the template was published.
 * The plugin adds a 'twshares' field to the standard MT::Entry object, allowing entries lists to be sorted by this number in this way:
     <mt:entries lastn="99999" sort_by="twshares" sort_order="desc">
     <li><mt:EntryTWShares> - <a href="<mt:entrypermalink>"><mt:entrytitle></a></li>
