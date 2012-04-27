@@ -16,7 +16,6 @@ sub count_twitter_shares {
 			$entriesiter = MT::Entry->load_iter({blog_id => $blog->id});
 			while (my $entry = $entriesiter->()) {	
 				my $twresult = get("http://urls.api.twitter.com/1/urls/count.json?url=".$entry->permalink);
-				MT->log("TwitterSharecount for ".$entry->permalink." ".$twresult);
 				my $decoded_json = decode_json( $twresult );
 				if ($decoded_json->{'count'}){
 					$entry->twshares($decoded_json->{'count'});
