@@ -1,0 +1,7 @@
+<mtapp:setting
+  id="count_tw_shares"
+  label="Count Twitter Shares of the entries in this blog?"
+  hint="This will cause calls to be made to the Twitter API every hour, one for each entry in this blog.  On larger blogs this could slow down the server."
+  show_hint="1">
+    <input type="checkbox" name="count_tw_shares" id="count_tw_shares" value="1" <mt:if name="count_tw_shares">checked="1"</mt:if>/>
+</mtapp:setting>

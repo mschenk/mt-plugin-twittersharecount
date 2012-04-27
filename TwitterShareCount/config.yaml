@@ -1,0 +1,33 @@
+id: TwitterShareCount
+name: TwitterShareCount
+version: 1.0
+description: A plugin which pulls in the number of shares for each of your entries
+author_name: Maarten Schenk
+author_link: http://www.yesitcan.be
+doc_link: http://www.yesitcan.be
+schema_version: 3
+
+object_types:
+    entry:
+        twshares: integer
+        
+settings:
+  count_tw_shares:
+    default: 0
+    scope: blog
+    
+list_properties:
+    entry:
+      twshares: Twitter Shares
+    
+blog_config_template: tmpl/blog_config.tmpl
+
+tasks:
+  count_tw_shares:
+    label:     "Count Twitter Shares"
+    frequency: 3600
+    code:      $TwitterShareCount::TwitterShareCount::Plugin::count_twitter_shares
+    
+tags:
+  function:
+    EntryTwShares:  $TwitterShareCount::TwitterShareCount::Plugin::_hdlr_entrytwshares
