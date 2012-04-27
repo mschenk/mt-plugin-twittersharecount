@@ -1,6 +1,6 @@
 id: TwitterShareCount
 name: TwitterShareCount
-version: 1.0
+version: 1.1
 description: A plugin which pulls in the number of shares for each of your entries
 author_name: Maarten Schenk
 author_link: http://www.yesitcan.be
@@ -14,6 +14,9 @@ object_types:
 settings:
   count_tw_shares:
     default: 0
+    scope: blog
+  days_to_check:
+    default: 30
     scope: blog
     
 list_properties:

@@ -5,3 +5,11 @@
   show_hint="1">
     <input type="checkbox" name="count_tw_shares" id="count_tw_shares" value="1" <mt:if name="count_tw_shares">checked="1"</mt:if>/>
 </mtapp:setting>
+
+<mtapp:setting
+  id="days_to_check"
+  label="Days to check?"
+  hint="Only check for the number of shares on Twitter for entries less than this number of days old. Set to 0 (zero) to check all entries."
+  show_hint="1">
+    <input type="text" name="days_to_check" id="days_to_check" value="<mt:var name="days_to_check">"/>
+</mtapp:setting>

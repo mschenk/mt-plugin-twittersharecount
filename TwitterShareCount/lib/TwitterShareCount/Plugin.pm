@@ -13,8 +13,17 @@ sub count_twitter_shares {
 		my $scope = "blog:" . $blog->id;
 		if ($plugin->get_config_value('count_tw_shares',$scope)){
 			# If the blog has the 'count_tw_shares' option checked, loop over all entries and check them.
-			$entriesiter = MT::Entry->load_iter({blog_id => $blog->id});
-			while (my $entry = $entriesiter->()) {	
+			my $entriesiter;
+			my $days_to_check = $plugin->get_config_value('days_to_check',$scope);
+			if ($days_to_check && ($days_to_check =~ /^\d+$/)){
+				require DateTime;
+				my $startdate = DateTime->now->subtract(days => $days_to_check);
+				$entriesiter = MT::Entry->load_iter({blog_id => $blog->id, created_on => [ $startdate->ymd . '000000', undef]}, {range => {created_on => 1}});
+			}
+			else {
+				$entriesiter = MT::Entry->load_iter({blog_id => $blog->id});
+			}
+			while (my $entry = $entriesiter->()) {
 				my $twresult = get("http://urls.api.twitter.com/1/urls/count.json?url=".$entry->permalink);
 				my $decoded_json = decode_json( $twresult );
 				if ($decoded_json->{'count'}){

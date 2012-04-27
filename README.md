@@ -16,7 +16,7 @@ Simply copy the TwitterShareCount folder into the 'plugins' folder of your Movab
 
 Configuration
 --------------
-Go to the Tools > Plugins menu of the blog you want to enable this plugin for, and open the settings for the TwitterShareCount plugin.  Check the box to enable the plugin, and save the settings.
+Go to the Tools > Plugins menu of the blog you want to enable this plugin for, and open the settings for the TwitterShareCount plugin.  Check the box to enable the plugin, and save the settings.  By default, the plugin only checks the Twitter share count for entries that are less than 30 days old.  You can increase this number in the plugin settings, or set it to zero to make the plugin check all entries in the blog every hour.  NOTE: this may result in rate limitation by the Twitter API if you have a very large blog.
 
 Usage
 ------
